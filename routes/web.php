@@ -16,3 +16,7 @@ Route::get('/supplements', function () {
 Route::get('/register', function () {
     return Inertia::render('Auth/Register');
 })->name('register.index');
+
+Route::post('/register', function () {
+    dd(request()->all());
+});
