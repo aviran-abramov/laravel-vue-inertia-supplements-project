@@ -9,3 +9,6 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
+Route::get('/supplements', function () {
+    return Inertia::render('Supplements/Index');
+})->name('supplements.index');
