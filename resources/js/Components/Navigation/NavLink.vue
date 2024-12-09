@@ -5,7 +5,7 @@ import { computed } from 'vue';
 const props = defineProps<{
     href: string,
     active: boolean
-}>()
+}>();
 
 const classes = computed(() => {
     const defaultClasses = 'rounded-md px-3 py-2 text-sm font-medium';
