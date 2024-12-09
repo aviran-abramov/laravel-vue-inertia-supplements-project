@@ -4,6 +4,6 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 
 <template>
     <AppLayout>
-        <h1>Register Page</h1>
+        <form action=""></form>
     </AppLayout>
 </template>

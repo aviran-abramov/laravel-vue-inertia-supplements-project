@@ -8,15 +8,21 @@ const props = defineProps<{
 }>();
 
 const classes = computed(() => {
-    const defaultClasses = 'rounded-md px-3 py-2 text-sm font-medium';
-    const activeClasses = props.active ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white';
+    const baseClasses = 'rounded-md px-3 py-2 text-sm font-medium';
+    const activeClasses = props.active
+        ? 'bg-gray-900 text-white'
+        : 'text-gray-300 hover:bg-gray-700 hover:text-white';
 
-    return `${defaultClasses} ${activeClasses}`;
+    return `${baseClasses} ${activeClasses}`;
 });
 </script>
 
 <template>
-    <Link :href="href" :class="classes">
+    <Link
+        :href="href"
+        :class="classes"
+        :aria-current="props.active ? 'page' : null"
+    >
         <slot />
     </Link>
 </template>
