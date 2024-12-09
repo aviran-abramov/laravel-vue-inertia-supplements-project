@@ -1,17 +1,11 @@
-<script setup>
+<script setup lang="ts">
 import { Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
-const props = defineProps({
-    href: {
-        type: String,
-        required: true,
-    },
-    active: {
-        type: Boolean,
-        required: true,
-    }
-})
+const props = defineProps<{
+    href: string,
+    active: boolean
+}>()
 
 const classes = computed(() => {
     const defaultClasses = 'rounded-md px-3 py-2 text-sm font-medium';
