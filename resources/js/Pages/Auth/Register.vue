@@ -9,7 +9,6 @@ const form = useForm({
     password: null,
     password_confirmation: null
 });
-
 </script>
 
 <template>

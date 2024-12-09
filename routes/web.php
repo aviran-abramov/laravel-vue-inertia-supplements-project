@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegisteredUserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -13,10 +14,6 @@ Route::get('/supplements', function () {
     return Inertia::render('Supplements/Index');
 })->name('supplements.index');
 
-Route::get('/register', function () {
-    return Inertia::render('Auth/Register');
-})->name('register.index');
-
-Route::post('/register', function () {
-    dd(request()->all());
-});
+// Register
+Route::get('/register', [RegisteredUserController::class, 'index'])->name('register.index');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
