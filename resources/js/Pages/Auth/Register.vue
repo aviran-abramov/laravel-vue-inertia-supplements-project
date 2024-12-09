@@ -1,21 +1,14 @@
 <script setup lang="ts">
+import { IRegisterForm } from '@/interfaces/forms';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from '@inertiajs/vue3';
 
-interface IRegisterForm {
-    email: string;
-    first_name: string;
-    last_name: string;
-    password: string;
-    password_confirmation: string;
-}
-
 const form = useForm<IRegisterForm>({
-    email: '',
-    first_name: '',
-    last_name: '',
-    password: '',
-    password_confirmation: ''
+    email: null,
+    first_name: null,
+    last_name: null,
+    password: null,
+    password_confirmation: null
 });
 </script>
 
