@@ -3,7 +3,7 @@ import { IFormInput } from '@/interfaces/forms';
 
 defineProps<IFormInput>()
 
-const model = defineModel();
+const model = defineModel<string|null>();
 </script>
 
 <template>
