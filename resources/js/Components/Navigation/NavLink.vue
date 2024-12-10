@@ -1,11 +1,9 @@
 <script setup lang="ts">
+import { INavLink } from '@/interfaces/nav';
 import { Link } from '@inertiajs/vue3';
 import { computed } from 'vue';
 
-const { href, active } = defineProps<{
-    href: string,
-    active: boolean
-}>();
+const { href, active } = defineProps<INavLink>();
 
 const classes = computed(() => {
     const baseClasses = 'rounded-md px-3 py-2 text-sm font-medium';
