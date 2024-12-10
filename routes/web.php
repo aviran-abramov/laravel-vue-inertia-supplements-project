@@ -16,7 +16,7 @@ Route::get('/supplements', function () {
 })->name('supplements.index');
 
 // Register
-Route::get('/register', [RegisteredUserController::class, 'index'])->name('register.index');
+Route::get('/register', [RegisteredUserController::class, 'index'])->name('register.create');
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 
 // Login

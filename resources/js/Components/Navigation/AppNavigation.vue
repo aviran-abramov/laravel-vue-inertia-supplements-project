@@ -19,7 +19,7 @@ import NavLink from './NavLink.vue';
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
                         <NavLink :href="route('session.create')" :active="route().current('session.create')">Login</NavLink>
-                        <NavLink :href="route('register.index')" :active="route().current('register.index')">Register</NavLink>
+                        <NavLink :href="route('register.create')" :active="route().current('register.create')">Register</NavLink>
                     </div>
                 </div>
                 <div class="-mr-2 flex md:hidden">
