@@ -21,6 +21,8 @@ class SessionController extends Controller
             return back()->withInput($request->only('email'))->withErrors(['email' => "One of the fields is incorrect. Please try again."]);
         }
 
+        $request->session()->regenerate();
+
         return to_route('supplements.index');
     }
 }
