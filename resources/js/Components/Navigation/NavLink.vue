@@ -19,7 +19,7 @@ const classes = computed(() => {
 
 <template>
     <Link
-        :href="href"
+        :href
         :class="classes"
         :aria-current="props.active ? 'page' : null"
     >
