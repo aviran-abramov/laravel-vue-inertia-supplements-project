@@ -18,7 +18,7 @@ const form = useForm<IRegisterForm>({
 <template>
     <AppLayout>
         <form @submit.prevent="form.post('register')" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
-            <!-- First Name -->
+            <!-- Email Address -->
             <div>
                 <FormLabel htmlFor="email">Email Address</FormLabel>
 
@@ -33,7 +33,7 @@ const form = useForm<IRegisterForm>({
                 <FormError v-if="form.errors.email">{{ form.errors.email }}</FormError>
             </div>
 
-            <!-- Last Name -->
+            <!-- First Name -->
             <div>
                 <FormLabel htmlFor="first_name">First Name</FormLabel>
 
@@ -78,7 +78,7 @@ const form = useForm<IRegisterForm>({
                 <FormError v-if="form.errors.password">{{ form.errors.password }}</FormError>
             </div>
 
-            <!-- Password -->
+            <!-- Password Confirmation -->
             <div>
                 <FormLabel htmlFor="password_confirmation">Confirm Password</FormLabel>
 
