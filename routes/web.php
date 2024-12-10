@@ -7,9 +7,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', function () {
-    return Inertia::render('Home');
-});
+Route::redirect('/', '/supplements');
 
 Route::get('/supplements', function () {
     return Inertia::render('Supplements/Index');
