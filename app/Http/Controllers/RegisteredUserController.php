@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\RegisterUserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class RegisteredUserController extends Controller
@@ -12,8 +14,10 @@ class RegisteredUserController extends Controller
         return Inertia::render('Auth/Register');
     }
 
-    public function store()
+    public function store(RegisterUserRequest $request)
     {
-        dd(request()->all());
+        Auth::login($request->validated());
+
+        return to_route('supplements.index');
     }
 }
