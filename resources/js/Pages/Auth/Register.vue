@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FormError from '@/Components/Forms/FormError.vue';
 import FormLabel from '@/Components/Forms/FormLabel.vue';
 import { IRegisterForm } from '@/interfaces/forms';
 import AppLayout from '@/Layouts/AppLayout.vue';
@@ -27,7 +28,7 @@ const form = useForm<IRegisterForm>({
                     placeholder="johndoe@gmail.com"
                     class="mt-1 block w-80 rounded bg-white px-3 py-1.5 text-gray-900 outline outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-400"
                 />
-                <p v-if="form.errors.email" class="text-red-500 text-sm mt-1">* {{ form.errors.email }}</p>
+                <FormError v-if="form.errors.email">{{ form.errors.email }}</FormError>
             </div>
 
             <!-- Last Name -->
@@ -41,7 +42,7 @@ const form = useForm<IRegisterForm>({
                     placeholder="John"
                     class="mt-1 block w-80 rounded bg-white px-3 py-1.5 text-gray-900 outline outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-400"
                 />
-                <p v-if="form.errors.first_name" class="text-red-500 text-sm mt-1">* {{ form.errors.first_name }}</p>
+                <FormError v-if="form.errors.first_name">{{ form.errors.first_name }}</FormError>
             </div>
 
             <!-- Last Name -->
@@ -55,7 +56,7 @@ const form = useForm<IRegisterForm>({
                     placeholder="Doe"
                     class="mt-1 block w-80 rounded bg-white px-3 py-1.5 text-gray-900 outline outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-400"
                 />
-                <p v-if="form.errors.last_name" class="text-red-500 text-sm mt-1">* {{ form.errors.last_name }}</p>
+                <FormError v-if="form.errors.last_name">{{ form.errors.last_name }}</FormError>
             </div>
 
             <!-- Password -->
@@ -69,7 +70,8 @@ const form = useForm<IRegisterForm>({
                     placeholder="123456"
                     class="mt-1 block w-80 rounded bg-white px-3 py-1.5 text-gray-900 outline outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-400"
                 />
-                <p v-if="form.errors.password" class="text-red-500 text-sm mt-1">* {{ form.errors.password }}</p>
+                <!-- <p v-if="form.errors.password" class="text-red-500 text-sm mt-1">* {{ form.errors.password }}</p> -->
+                <FormError v-if="form.errors.password">{{ form.errors.password }}</FormError>
             </div>
 
             <!-- Password -->
@@ -83,7 +85,7 @@ const form = useForm<IRegisterForm>({
                     placeholder="123456"
                     class="mt-1 block w-80 rounded bg-white px-3 py-1.5 text-gray-900 outline outline-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-green-400"
                 />
-                <p v-if="form.errors.password_confirmation" class="text-red-500 text-sm mt-1">* {{ form.errors.password_confirmation }}</p>
+                <FormError v-if="form.errors.password_confirmation">{{ form.errors.password_confirmation }}</FormError>
             </div>
 
             <button type="submit" class="rounded-md bg-green-600 px-3 py-2 text-sm font-bold text-white hover:bg-green-500">Register</button>
