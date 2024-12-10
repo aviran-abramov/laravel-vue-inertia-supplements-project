@@ -5,3 +5,7 @@ export interface IRegisterForm {
     password: string | null;
     password_confirmation: string | null;
 }
+
+export interface IFormLabel {
+    htmlFor: string;
+}

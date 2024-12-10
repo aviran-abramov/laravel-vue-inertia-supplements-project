@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import FormLabel from '@/Components/Forms/FormLabel.vue';
 import { IRegisterForm } from '@/interfaces/forms';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from '@inertiajs/vue3';
@@ -17,7 +18,7 @@ const form = useForm<IRegisterForm>({
         <form @submit.prevent="form.post('register')" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
             <!-- First Name -->
             <div>
-                <label for="email" class="block font-medium text-gray-900">Email Address</label>
+                <FormLabel htmlFor="email">Email Address</FormLabel>
                 <input
                     v-model="form.email"
                     type="email"
@@ -31,7 +32,7 @@ const form = useForm<IRegisterForm>({
 
             <!-- Last Name -->
             <div>
-                <label for="first_name" class="block font-medium text-gray-900">First Name</label>
+                <FormLabel htmlFor="first_name">First Name</FormLabel>
                 <input
                     v-model="form.first_name"
                     type="text"
@@ -45,7 +46,7 @@ const form = useForm<IRegisterForm>({
 
             <!-- Last Name -->
             <div>
-                <label for="last_name" class="block font-medium text-gray-900">Last Name</label>
+                <FormLabel htmlFor="last_name">Last Name</FormLabel>
                 <input
                     v-model="form.last_name"
                     type="text"
@@ -59,7 +60,7 @@ const form = useForm<IRegisterForm>({
 
             <!-- Password -->
             <div>
-                <label for="password" class="block font-medium text-gray-900">Password</label>
+                <FormLabel htmlFor="password">Password</FormLabel>
                 <input
                     v-model="form.password"
                     type="password"
@@ -73,7 +74,7 @@ const form = useForm<IRegisterForm>({
 
             <!-- Password -->
             <div>
-                <label for="password_confirmation" class="block font-medium text-gray-900">Confirm Password</label>
+                <FormLabel htmlFor="password_confirmation">Confirm Password</FormLabel>
                 <input
                     v-model="form.password_confirmation"
                     type="password"
