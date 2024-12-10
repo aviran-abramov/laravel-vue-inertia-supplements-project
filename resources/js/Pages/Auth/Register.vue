@@ -18,7 +18,7 @@ const form = useForm<IRegisterForm>({
 
 <template>
     <AppLayout title="Register">
-        <form @submit.prevent="form.post('register')" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
+        <form @submit.prevent="form.post(route('register.store'))" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
             <!-- Email Address -->
             <div>
                 <FormLabel htmlFor="email">Email Address</FormLabel>

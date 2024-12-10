@@ -15,7 +15,7 @@ const form = useForm<ILoginForm>({
 
 <template>
     <AppLayout title="Login">
-        <form @submit.prevent="form.post('login')" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
+        <form @submit.prevent="form.post(route('session.store'))" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
             <!-- Email Address -->
             <div>
                 <FormLabel htmlFor="email">Email Address</FormLabel>
