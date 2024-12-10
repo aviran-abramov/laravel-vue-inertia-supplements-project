@@ -12,14 +12,13 @@ import NavLink from './NavLink.vue';
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
-                            <NavLink :href="route('supplements.index')" :active="route().current('supplements.index')">
-                                Supplements
-                            </NavLink>
+                            <NavLink :href="route('supplements.index')" :active="route().current('supplements.index')">Supplements</NavLink>
                         </div>
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-4 flex items-center md:ml-6">
+                        <NavLink :href="route('session.create')" :active="route().current('session.create')">Login</NavLink>
                         <NavLink :href="route('register.index')" :active="route().current('register.index')">Register</NavLink>
                     </div>
                 </div>

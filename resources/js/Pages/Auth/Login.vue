@@ -1,0 +1,51 @@
+<script setup lang="ts">
+import FormError from '@/Components/Forms/FormError.vue';
+import FormInput from '@/Components/Forms/FormInput.vue';
+import FormLabel from '@/Components/Forms/FormLabel.vue';
+import { ILoginForm } from '@/interfaces/forms';
+import AppLayout from '@/Layouts/AppLayout.vue';
+import { useForm } from '@inertiajs/vue3';
+
+const form = useForm<ILoginForm>({
+    email: null,
+    password: null
+});
+</script>
+
+<template>
+    <AppLayout>
+        <form @submit.prevent="form.post('login')" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
+            <!-- Email Address -->
+            <div>
+                <FormLabel htmlFor="email">Email Address</FormLabel>
+
+                <FormInput
+                    v-model="form.email"
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="johndoe@gmail.com"
+                />
+
+                <FormError v-if="form.errors.email" >{{ form.errors.email }}</FormError>
+            </div>
+
+            <!-- Password -->
+            <div>
+                <FormLabel htmlFor="password">Password</FormLabel>
+
+                <FormInput
+                    v-model="form.password"
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="123456"
+                />
+
+                <FormError v-if="form.errors.password">{{ form.errors.password }}</FormError>
+            </div>
+
+            <button type="submit" class="rounded-md bg-green-600 px-3 py-2 text-sm font-bold text-white hover:bg-green-500">Login</button>
+        </form>
+    </AppLayout>
+</template>

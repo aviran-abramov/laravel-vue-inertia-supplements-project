@@ -6,6 +6,11 @@ export interface IRegisterForm {
     password_confirmation: string | null;
 }
 
+export interface ILoginForm {
+    email: string | null;
+    password: string | null;
+}
+
 export interface IFormLabel {
     htmlFor: string;
 }
