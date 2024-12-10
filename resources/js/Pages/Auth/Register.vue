@@ -16,7 +16,7 @@ const form = useForm<IRegisterForm>({
 </script>
 
 <template>
-    <AppLayout>
+    <AppLayout title="Register">
         <form @submit.prevent="form.post('register')" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
             <!-- Email Address -->
             <div>
