@@ -2,6 +2,7 @@
 import FormError from '@/Components/Forms/FormError.vue';
 import FormInput from '@/Components/Forms/FormInput.vue';
 import FormLabel from '@/Components/Forms/FormLabel.vue';
+import FormSubmitButton from '@/Components/Forms/FormSubmitButton.vue';
 import { IRegisterForm } from '@/interfaces/forms';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from '@inertiajs/vue3';
@@ -93,7 +94,7 @@ const form = useForm<IRegisterForm>({
                 <FormError v-if="form.errors.password_confirmation">{{ form.errors.password_confirmation }}</FormError>
             </div>
 
-            <button type="submit" class="rounded-md bg-green-600 px-3 py-2 text-sm font-bold text-white hover:bg-green-500">Register</button>
+            <FormSubmitButton>Register</FormSubmitButton>
         </form>
     </AppLayout>
 </template>

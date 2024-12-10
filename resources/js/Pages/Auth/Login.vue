@@ -2,6 +2,7 @@
 import FormError from '@/Components/Forms/FormError.vue';
 import FormInput from '@/Components/Forms/FormInput.vue';
 import FormLabel from '@/Components/Forms/FormLabel.vue';
+import FormSubmitButton from '@/Components/Forms/FormSubmitButton.vue';
 import { ILoginForm } from '@/interfaces/forms';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { useForm } from '@inertiajs/vue3';
@@ -45,7 +46,7 @@ const form = useForm<ILoginForm>({
                 <FormError v-if="form.errors.password">{{ form.errors.password }}</FormError>
             </div>
 
-            <button type="submit" class="rounded-md bg-green-600 px-3 py-2 text-sm font-bold text-white hover:bg-green-500">Login</button>
+            <FormSubmitButton>Login</FormSubmitButton>
         </form>
     </AppLayout>
 </template>
