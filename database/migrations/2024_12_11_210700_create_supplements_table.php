@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('supplements', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
             $table->string('description');
             $table->string('additional_info_1');
             $table->string('additional_info_2');
