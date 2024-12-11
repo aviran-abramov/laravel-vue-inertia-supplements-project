@@ -5,7 +5,7 @@ import FormLabel from '@/Components/Forms/FormLabel.vue';
 import FormSubmitButton from '@/Components/Forms/FormSubmitButton.vue';
 import { ILoginForm } from '@/interfaces/forms';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { useForm } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 
 const form = useForm<ILoginForm>({
     email: null,
@@ -14,6 +14,8 @@ const form = useForm<ILoginForm>({
 </script>
 
 <template>
+    <Head title="Login" />
+
     <AppLayout title="Login">
         <form @submit.prevent="form.post(route('session.store'))" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
             <!-- Email Address -->

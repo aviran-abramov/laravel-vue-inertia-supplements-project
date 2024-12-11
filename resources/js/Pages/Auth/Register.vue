@@ -5,7 +5,7 @@ import FormLabel from '@/Components/Forms/FormLabel.vue';
 import FormSubmitButton from '@/Components/Forms/FormSubmitButton.vue';
 import { IRegisterForm } from '@/interfaces/forms';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { useForm } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 
 const form = useForm<IRegisterForm>({
     email: null,
@@ -17,6 +17,8 @@ const form = useForm<IRegisterForm>({
 </script>
 
 <template>
+    <Head title="Register" />
+
     <AppLayout title="Register">
         <form @submit.prevent="form.post(route('register.store'))" class="space-y-4 border border-black rounded w-[400px] mx-auto py-4 flex flex-col items-center">
             <!-- Email Address -->
