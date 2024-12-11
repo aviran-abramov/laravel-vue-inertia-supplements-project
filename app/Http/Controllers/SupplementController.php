@@ -11,7 +11,7 @@ class SupplementController extends Controller
     public function index()
     {
         return Inertia::render('Supplements/Index', [
-            'supplements' => Supplement::orderBy('name')->get()
+            'supplements' => Supplement::orderBy('name')->get(),
         ]);
     }
 }
