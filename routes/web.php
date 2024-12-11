@@ -3,15 +3,14 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionController;
+use App\Http\Controllers\SupplementController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::redirect('/', '/supplements');
 
-Route::get('/supplements', function () {
-    return Inertia::render('Supplements/Index');
-})->name('supplements.index');
+Route::get('/supplements', [SupplementController::class, 'index'])->name('supplements.index');
 
 // Register
 Route::get('/register', [RegisteredUserController::class, 'index'])->name('register.create');
