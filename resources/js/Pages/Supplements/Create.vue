@@ -77,7 +77,7 @@ const form = useForm<ISupplement>({
                     placeholder="Studies suggest regular use may enhance sleep quality, support cognitive function, and balance mood by regulating stress hormones."
                 />
 
-                <FormError v-if="form.errors.additional_info_1">{{ form.errors.additional_info_1 }}</FormError>
+                <FormError v-if="form.errors.additional_info_2">{{ form.errors.additional_info_2 }}</FormError>
             </div>
 
             <FormSubmitButton>Create</FormSubmitButton>
