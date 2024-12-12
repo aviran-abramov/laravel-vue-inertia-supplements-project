@@ -16,7 +16,7 @@ const { supplements } = defineProps<{
             <!-- Supplements Container -->
             <div class="flex flex-wrap justify-center gap-4">
                 <!-- Supplement Card -->
-                <div v-for="supplement in supplements" :key="supplement.name" class="border rounded border-green-700 p-2 w-[300px]">
+                <div v-for="supplement in supplements" :key="supplement.id" class="border rounded border-green-700 p-2 w-[300px]">
                     <h3 class="text-lg font-semibold">{{ supplement.name }}</h3>
                     <p class="mt-0.5 text-gray-600 text-sm">{{ supplement.description }}</p>
                 </div>
