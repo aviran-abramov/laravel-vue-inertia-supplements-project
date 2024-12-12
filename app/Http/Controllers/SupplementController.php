@@ -27,6 +27,6 @@ class SupplementController extends Controller
     {
         Supplement::create($request->validated());
 
-        return to_route('supplements.index');
+        return to_route('supplements.index')->with('message', 'Supplement created successfully!');
     }
 }
