@@ -25,6 +25,6 @@ class SessionController extends Controller
 
         $request->session()->regenerate();
 
-        return to_route('supplements.index');
+        return to_route('supplements.index')->with('message', 'You have successfully logged in!');
     }
 }

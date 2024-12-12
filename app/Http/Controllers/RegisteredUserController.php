@@ -21,6 +21,6 @@ class RegisteredUserController extends Controller
     {
         Auth::login(User::create($request->validated()));
 
-        return to_route('supplements.index');
+        return to_route('supplements.index')->with('message', 'User created successfully!');
     }
 }
