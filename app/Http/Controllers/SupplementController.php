@@ -14,4 +14,14 @@ class SupplementController extends Controller
             'supplements' => Supplement::orderBy('name')->get(),
         ]);
     }
+
+    public function create()
+    {
+        return Inertia::render('Supplements/Create');
+    }
+
+    public function store()
+    {
+        dd('submitted');
+    }
 }

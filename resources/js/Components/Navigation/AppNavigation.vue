@@ -13,6 +13,7 @@ import NavLink from './NavLink.vue';
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <NavLink :href="route('supplements.index')" :active="route().current('supplements.index')">Supplements</NavLink>
+                            <NavLink :href="route('supplements.create')" :active="route().current('supplements.create')">Create</NavLink>
                         </div>
                     </div>
                 </div>

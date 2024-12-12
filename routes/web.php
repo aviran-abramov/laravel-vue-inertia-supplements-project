@@ -11,6 +11,8 @@ use Inertia\Inertia;
 Route::redirect('/', '/supplements');
 
 Route::get('/supplements', [SupplementController::class, 'index'])->name('supplements.index');
+Route::post('/supplements', [SupplementController::class, 'store'])->name('supplements.store');
+Route::get('/supplements/create', [SupplementController::class, 'create'])->name('supplements.create');
 
 // Register
 Route::get('/register', [RegisteredUserController::class, 'index'])->name('register.create');
