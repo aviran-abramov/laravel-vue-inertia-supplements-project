@@ -23,5 +23,5 @@ export interface IFormInput {
 }
 
 export interface IFormSubmitButton {
-    processing: boolean;
+    processing?: boolean;
 }

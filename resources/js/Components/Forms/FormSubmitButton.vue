@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { IFormSubmitButton } from '@/interfaces/forms';
 
-const { processing } = defineProps<IFormSubmitButton>()
+const { processing = false } = defineProps<IFormSubmitButton>()
 </script>
 
 <template>
