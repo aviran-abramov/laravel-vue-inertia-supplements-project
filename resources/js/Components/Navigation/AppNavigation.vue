@@ -20,7 +20,7 @@ import NavLink from './NavLink.vue';
                 <div class="hidden md:block">
                     <!-- Auth -->
                     <div v-if="$page.props.auth.user">
-                        <NavLink :href="route('session.destroy')" method="post" as="button" :active="route().current('session.destroy')">Logout</NavLink>
+                        <NavLink :href="route('session.destroy')" method="post" as="button">Logout</NavLink>
                     </div>
 
                     <!-- Guest -->
