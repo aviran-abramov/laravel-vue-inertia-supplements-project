@@ -13,12 +13,18 @@ import NavLink from './NavLink.vue';
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
                             <NavLink :href="route('supplements.index')" :active="route().current('supplements.index')">Supplements</NavLink>
-                            <NavLink :href="route('supplements.create')" :active="route().current('supplements.create')">Create</NavLink>
+                            <NavLink v-if="$page.props.auth.user" :href="route('supplements.create')" :active="route().current('supplements.create')">Create</NavLink>
                         </div>
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-4 flex items-center md:ml-6">
+                    <!-- Auth -->
+                    <div v-if="$page.props.auth.user">
+                        <NavLink :href="route('session.destroy')" :active="route().current('session.destroy')">Logout</NavLink>
+                    </div>
+
+                    <!-- Guest -->
+                    <div v-else class="ml-4 flex items-center md:ml-6">
                         <NavLink :href="route('session.create')" :active="route().current('session.create')">Login</NavLink>
                         <NavLink :href="route('register.create')" :active="route().current('register.create')">Register</NavLink>
                     </div>
