@@ -96,7 +96,7 @@ const form = useForm<IRegisterForm>({
                 <FormError v-if="form.errors.password_confirmation">{{ form.errors.password_confirmation }}</FormError>
             </div>
 
-            <FormSubmitButton>Register</FormSubmitButton>
+            <FormSubmitButton :processing="form.processing">Register</FormSubmitButton>
         </form>
     </AppLayout>
 </template>

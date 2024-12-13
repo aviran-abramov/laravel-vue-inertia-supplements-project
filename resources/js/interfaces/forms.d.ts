@@ -21,3 +21,7 @@ export interface IFormInput {
     id: string;
     placeholder: string;
 }
+
+export interface IFormSubmitButton {
+    processing: boolean;
+}

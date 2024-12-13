@@ -80,8 +80,8 @@ const form = useForm<ISupplement>({
 
                 <FormError v-if="form.errors.additional_info_2">{{ form.errors.additional_info_2 }}</FormError>
             </div>
-
-            <FormSubmitButton>Create</FormSubmitButton>
+            
+            <FormSubmitButton :processing="form.processing">Create</FormSubmitButton>
         </form>
     </AppLayout>
 </template>
