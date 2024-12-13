@@ -5,10 +5,7 @@ import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, usePage } from '@inertiajs/vue3';
 import { onMounted, ref } from 'vue';
 
-
-const { supplements } = defineProps<{
-    supplements: ISupplement[]
-}>()
+const supplements = defineProps<ISupplement[]>();
 
 const flashMessageIsVisible = ref(true);
 
