@@ -1,11 +1,14 @@
 <script setup lang="ts">
 import FlashMessage from '@/Components/FlashMessage.vue';
+import SupplementCard from '@/Components/Supplements/SupplementCard.vue';
 import { ISupplement } from '@/interfaces/supplements';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, usePage } from '@inertiajs/vue3';
 import { onMounted, ref } from 'vue';
 
-const supplements = defineProps<ISupplement[]>();
+const { supplements } = defineProps<{
+    supplements: ISupplement[]
+}>();
 
 const flashMessageIsVisible = ref(true);
 
@@ -26,11 +29,11 @@ onMounted(() => {
         <section v-if="supplements">
             <!-- Supplements Container -->
             <div class="flex flex-wrap justify-center gap-4">
-                <!-- Supplement Card -->
-                <div v-for="supplement in supplements" :key="supplement.id" class="border rounded border-green-700 p-2 w-[300px]">
-                    <h3 class="text-lg font-semibold">{{ supplement.name }}</h3>
-                    <p class="mt-0.5 text-gray-600 text-sm">{{ supplement.description }}</p>
-                </div>
+                <SupplementCard
+                    v-for="supplement in supplements"
+                    :key="supplement.id"
+                    :supplement
+                />
             </div>
         </section>
 
