@@ -10,6 +10,6 @@ const { processing = false } = defineProps<IFormSubmitButton>()
             <slot />
         </span>
 
-        <span v-else disabled>Processing...</span>
+        <span v-else disabled class="loading loading-spinner loading-sm"></span>
     </button>
 </template>
