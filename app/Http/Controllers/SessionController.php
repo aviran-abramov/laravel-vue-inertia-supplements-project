@@ -27,4 +27,11 @@ class SessionController extends Controller
 
         return to_route('supplements.index')->with('message', 'You have successfully logged in!');
     }
+
+    public function destroy()
+    {
+        Auth::logout();
+
+        return to_route('supplements.index')->with('message', 'You have successfully logged out!');
+    }
 }
