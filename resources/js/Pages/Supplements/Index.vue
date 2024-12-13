@@ -2,12 +2,21 @@
 import FlashMessage from '@/Components/FlashMessage.vue';
 import { ISupplement } from '@/interfaces/supplements';
 import AppLayout from '@/Layouts/AppLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head, usePage } from '@inertiajs/vue3';
+import { onMounted, ref } from 'vue';
 
 
 const { supplements } = defineProps<{
     supplements: ISupplement[]
 }>()
+
+const flashMessageIsVisible = ref(true);
+
+onMounted(() => {
+    if (usePage().props.flash.message) {
+        setTimeout(() => flashMessageIsVisible.value = false, 3000);
+    }
+});
 </script>
 
 <template>
@@ -15,7 +24,7 @@ const { supplements } = defineProps<{
 
     <AppLayout title="Supplements List">
         <!-- Flash message in case of any successful action -->
-        <FlashMessage v-if="$page.props.flash.message">{{ $page.props.flash.message }}</FlashMessage>
+        <FlashMessage v-if="$page.props.flash.message && flashMessageIsVisible">{{ $page.props.flash.message }}</FlashMessage>
 
         <section v-if="supplements">
             <!-- Supplements Container -->
