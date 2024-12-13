@@ -48,7 +48,7 @@ const form = useForm<ILoginForm>({
                 <FormError v-if="form.errors.password">{{ form.errors.password }}</FormError>
             </div>
 
-            <FormSubmitButton>Login</FormSubmitButton>
+            <FormSubmitButton :processing="form.processing">Login</FormSubmitButton>
         </form>
     </AppLayout>
 </template>
