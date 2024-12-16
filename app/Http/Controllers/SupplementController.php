@@ -29,4 +29,11 @@ class SupplementController extends Controller
 
         return to_route('supplements.index')->with('message', 'Supplement created successfully!');
     }
+
+    public function destroy(Supplement $supplement)
+    {
+        $supplement->delete();
+
+        return to_route('supplements.index');
+    }
 }
