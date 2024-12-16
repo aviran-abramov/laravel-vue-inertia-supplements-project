@@ -47,7 +47,9 @@ const triggerModal = () => showModal.value = !showModal.value;
             </div>
 
             <!-- Buttons -->
-             <div class="mt-3">
+             <div class="mt-3 flex items-center gap-1">
+                 <FormSubmitButton @click="router.delete(route('supplements.destroy', supplement.id))" variant="delete">Delete</FormSubmitButton>
+
                 <ActionButton @click="triggerModal">Close</ActionButton>
              </div>
         </div>
