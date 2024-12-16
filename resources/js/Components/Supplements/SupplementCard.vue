@@ -28,7 +28,10 @@ const triggerModal = () => showModal.value = !showModal.value;
     </div>
 
     <!-- Modal -->
-    <dialog v-if="showModal" class="modal" open>
+    <dialog v-if="showModal" class="fixed inset-0 modal" open>
+        <!-- Darker background -->
+        <div class="fixed inset-0 bg-black bg-opacity-50" @click="triggerModal"></div>
+
         <div class="modal-box max-w-4xl border-2 border-black">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" @click="triggerModal">✕</button>
             <h3 class="text-xl font-bold">{{ supplement.name }}</h3>
