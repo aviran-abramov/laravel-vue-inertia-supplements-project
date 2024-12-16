@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class RegisteredUserController extends Controller
+class RegisteredUserController extends BaseController
 {
     public function index(): Response
     {
@@ -21,6 +21,6 @@ class RegisteredUserController extends Controller
     {
         Auth::login(User::create($request->validated()));
 
-        return to_route('supplements.index')->with('message', 'User created successfully!');
+        return $this->successResponse('User created successfully!', 'supplements.index');
     }
 }

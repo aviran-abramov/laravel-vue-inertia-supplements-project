@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class SupplementController extends Controller
+class SupplementController extends BaseController
 {
     public function index(): Response
     {
@@ -27,13 +27,13 @@ class SupplementController extends Controller
     {
         Supplement::create($request->validated());
 
-        return to_route('supplements.index')->with('message', 'Supplement created successfully!');
+        return $this->successResponse('Supplement created successfully!', 'supplements.index');
     }
 
     public function destroy(Supplement $supplement)
     {
         $supplement->delete();
 
-        return to_route('supplements.index')->with('message', 'Supplement deleted successfully!');
+        return $this->successResponse('Supplement deleted successfully!', 'supplements.index');
     }
 }

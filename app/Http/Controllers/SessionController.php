@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class SessionController extends Controller
+class SessionController extends BaseController
 {
     public function create(): Response
     {
@@ -25,13 +25,13 @@ class SessionController extends Controller
 
         $request->session()->regenerate();
 
-        return to_route('supplements.index')->with('message', 'You have successfully logged in!');
+        return $this->successResponse('You have successfully logged in!', 'supplements.index');
     }
 
     public function destroy()
     {
         Auth::logout();
 
-        return to_route('supplements.index')->with('message', 'You have successfully logged out!');
+        return $this->successResponse('You have successfully logged out!', 'supplements.index');
     }
 }
