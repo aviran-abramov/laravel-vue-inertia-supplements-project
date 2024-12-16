@@ -34,6 +34,6 @@ class SupplementController extends Controller
     {
         $supplement->delete();
 
-        return to_route('supplements.index');
+        return to_route('supplements.index')->with('message', 'Supplement deleted successfully!');
     }
 }
