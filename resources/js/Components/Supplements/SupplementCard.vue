@@ -2,8 +2,14 @@
 import { ISupplement } from '@/interfaces/supplements';
 import FormSubmitButton from '../Forms/FormSubmitButton.vue';
 import { router } from '@inertiajs/vue3';
+import { ref } from 'vue';
+import ActionButton from '../ActionButton.vue';
 
 const { supplement } = defineProps<{ supplement: ISupplement }>();
+
+const showModal = ref(false);
+const triggerModal = () => showModal.value = !showModal.value;
+
 </script>
 
 <template>
@@ -15,8 +21,32 @@ const { supplement } = defineProps<{ supplement: ISupplement }>();
         </div>
 
         <!-- Buttons -->
-        <div class="mt-2">
+        <div class="mt-3 flex items-center gap-1">
+            <ActionButton variant="show" @click="triggerModal">Show</ActionButton>
             <FormSubmitButton @click="router.delete(route('supplements.destroy', supplement.id))" variant="delete">Delete</FormSubmitButton>
         </div>
     </div>
+
+    <!-- Modal -->
+    <dialog v-if="showModal" class="modal" open>
+        <div class="modal-box max-w-4xl border-2 border-black">
+            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" @click="triggerModal">✕</button>
+            <h3 class="text-xl font-bold">{{ supplement.name }}</h3>
+            <p class="py-4">{{ supplement.description }}</p>
+            <p>
+                <strong>More Info:</strong>
+            </p>
+
+            <div class="space-y-2 mt-2">
+                <p>{{ supplement.additional_info_1 }}</p>
+
+                <p>{{ supplement.additional_info_2 }}</p>
+            </div>
+
+            <!-- Buttons -->
+             <div class="mt-3">
+                <ActionButton @click="triggerModal">Close</ActionButton>
+             </div>
+        </div>
+    </dialog>
 </template>
