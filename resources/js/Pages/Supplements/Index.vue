@@ -4,7 +4,7 @@ import SupplementCard from '@/Components/Supplements/SupplementCard.vue';
 import { ISupplement } from '@/interfaces/supplements';
 import AppLayout from '@/Layouts/AppLayout.vue';
 import { Head, usePage } from '@inertiajs/vue3';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 
 const { supplements } = defineProps<{
     supplements: ISupplement[]
@@ -12,9 +12,13 @@ const { supplements } = defineProps<{
 
 const flashMessageIsVisible = ref(true);
 
-onMounted(() => {
-    if (usePage().props.flash.message) {
-        setTimeout(() => flashMessageIsVisible.value = false, 3000);
+watch(() => usePage().props.flash.message, (newValue) => {
+    if (newValue) {
+        flashMessageIsVisible.value = true;
+        setTimeout(() =>  {
+            flashMessageIsVisible.value = false;
+            usePage().props.flash.message = undefined;
+        }, 3000);
     }
 });
 </script>
