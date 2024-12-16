@@ -1,11 +1,22 @@
 <script setup lang="ts">
 import { IFormSubmitButton } from '@/interfaces/forms';
+import { computed } from 'vue';
 
-const { processing = false } = defineProps<IFormSubmitButton>()
+const { processing = false, variant = 'default' } = defineProps<IFormSubmitButton>()
+
+const classes = computed(() => {
+    const baseClasses = "rounded-md px-3 py-2 text-sm font-bold text-white";
+
+    const variantClasses = variant === 'default'
+        ? 'bg-green-600 hover:bg-green-500'
+        : 'bg-red-600 hover:bg-red-500';
+
+    return `${baseClasses} ${variantClasses}`;
+});
 </script>
 
 <template>
-    <button :disabled="processing" type="submit" class="rounded-md bg-green-600 px-3 py-2 text-sm font-bold text-white hover:bg-green-500 disabled:bg-gray-400">
+    <button :disabled="processing" type="submit" :class="classes">
         <span v-if="!processing">
             <slot />
         </span>

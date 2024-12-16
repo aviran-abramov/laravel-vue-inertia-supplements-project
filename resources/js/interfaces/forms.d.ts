@@ -23,5 +23,6 @@ export interface IFormInput {
 }
 
 export interface IFormSubmitButton {
+    variant?: 'default' | 'delete';
     processing?: boolean;
 }
