@@ -14,7 +14,7 @@ const triggerModal = () => showModal.value = !showModal.value;
 </script>
 
 <template>
-    <div class="border rounded border-green-700 bg-white p-2 w-[300px] flex flex-col justify-between">
+    <div class="border rounded border-black bg-white p-2 w-[300px] flex flex-col justify-between">
         <!-- Text -->
         <div>
             <h3 class="text-lg font-semibold">{{ supplement.name }}</h3>
