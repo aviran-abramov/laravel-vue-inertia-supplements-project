@@ -7,10 +7,15 @@ const { processing = false, variant = 'default' } = defineProps<IFormSubmitButto
 const classes = computed(() => {
     const baseClasses = "rounded-md px-3 py-2 text-sm font-bold text-white";
 
-    const variantClasses = variant === 'default'
-        ? 'bg-green-600 hover:bg-green-500'
-        : 'bg-red-600 hover:bg-red-500';
+    let variantClasses: string;
 
+    if (variant === 'delete') {
+        variantClasses = 'bg-red-600 hover:bg-red-500'; // Delete variant: Red styling
+    } else if (variant === 'update') {
+        variantClasses = 'bg-orange-600 hover:bg-orange-500'; // Update variant: Orange styling
+    } else {
+        variantClasses = 'bg-green-600 hover:bg-green-500'; // Default variant: Green styling
+    }
     return `${baseClasses} ${variantClasses}`;
 });
 </script>

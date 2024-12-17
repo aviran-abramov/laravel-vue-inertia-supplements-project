@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ISupplement } from '@/interfaces/supplements';
 import FormSubmitButton from '../Forms/FormSubmitButton.vue';
-import { router } from '@inertiajs/vue3';
+import { Link, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 import ActionButton from '../ActionButton.vue';
+import NavLink from '../Navigation/NavLink.vue';
 
 const { supplement } = defineProps<{ supplement: ISupplement }>();
 
@@ -23,6 +24,9 @@ const triggerModal = () => showModal.value = !showModal.value;
         <!-- Buttons -->
         <div class="mt-3 flex items-center gap-1">
             <ActionButton variant="show" @click="triggerModal">Show</ActionButton>
+
+            <Link class="rounded-md px-3 py-2 text-sm font-bold text-white bg-purple-500 hover:bg-purple-600" :href="route('supplements.edit', supplement.id)">Edit</Link>
+
             <FormSubmitButton @click="router.delete(route('supplements.destroy', supplement.id))" variant="delete">Delete</FormSubmitButton>
         </div>
     </div>
@@ -48,7 +52,9 @@ const triggerModal = () => showModal.value = !showModal.value;
 
             <!-- Buttons -->
              <div class="mt-3 flex items-center gap-1">
-                 <FormSubmitButton @click="router.delete(route('supplements.destroy', supplement.id))" variant="delete">Delete</FormSubmitButton>
+                <Link class="rounded-md px-3 py-2 text-sm font-bold text-white bg-purple-500 hover:bg-purple-600" :href="route('supplements.edit', supplement.id)">Edit</Link>
+
+                <FormSubmitButton @click="router.delete(route('supplements.destroy', supplement.id))" variant="delete">Delete</FormSubmitButton>
 
                 <ActionButton @click="triggerModal">Close</ActionButton>
              </div>

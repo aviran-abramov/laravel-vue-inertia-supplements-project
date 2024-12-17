@@ -14,6 +14,8 @@ Route::get('/supplements', [SupplementController::class, 'index'])->name('supple
 Route::post('/supplements', [SupplementController::class, 'store'])->name('supplements.store');
 Route::get('/supplements/create', [SupplementController::class, 'create'])->name('supplements.create');
 Route::delete('/supplements/{supplement}', [SupplementController::class, 'destroy'])->name('supplements.destroy');
+Route::get('/supplements/{supplement}', [SupplementController::class, 'edit'])->name('supplements.edit');
+Route::patch('/supplements/{supplement}', [SupplementController::class, 'patch'])->name('supplements.patch');
 
 // Register
 Route::get('/register', [RegisteredUserController::class, 'index'])->name('register.create');

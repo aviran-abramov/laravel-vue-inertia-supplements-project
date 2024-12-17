@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Supplements\StoreSupplementRequest;
+use App\Http\Requests\Supplements\UpdateSupplementRequest;
 use App\Models\Supplement;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -35,5 +36,21 @@ class SupplementController extends BaseController
         $supplement->delete();
 
         return $this->successResponse('Supplement deleted successfully!', 'supplements.index');
+    }
+
+    public function edit(Supplement $supplement)
+    {
+        return Inertia::render('Supplements/Edit', [
+            'supplement' => $supplement
+        ]);
+    }
+
+    public function patch(UpdateSupplementRequest $request, int $id): RedirectResponse
+    {
+        $supplement = Supplement::findOrFail($id);
+
+        $supplement->update($request->validated());
+
+        return $this->successResponse('Supplement updated successfully!', 'supplements.index');
     }
 }
