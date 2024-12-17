@@ -11,23 +11,35 @@ import NavLink from './NavLink.vue';
                         <img class="size-8" src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company">
                     </div>
                     <div class="hidden md:block">
-                        <div class="ml-10 flex items-baseline space-x-4">
-                            <NavLink :href="route('supplements.index')" :active="route().current('supplements.index')">Supplements</NavLink>
-                            <NavLink v-if="$page.props.auth.user" :href="route('supplements.create')" :active="route().current('supplements.create')">Create</NavLink>
-                        </div>
+                        <ul class="ml-10 flex items-baseline space-x-4">
+                            <li>
+                                <NavLink :href="route('supplements.index')" :active="route().current('supplements.index')">Supplements</NavLink>
+                            </li>
+
+                            <li>
+                                <NavLink v-if="$page.props.auth.user" :href="route('supplements.create')" :active="route().current('supplements.create')">Create</NavLink>
+                            </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="hidden md:block">
                     <!-- Auth -->
-                    <div v-if="$page.props.auth.user">
-                        <NavLink :href="route('session.destroy')" method="post" as="button">Logout</NavLink>
-                    </div>
+                    <ul v-if="$page.props.auth.user">
+                        <li>
+                            <NavLink :href="route('session.destroy')" method="post" as="button">Logout</NavLink>
+                        </li>
+                    </ul>
 
                     <!-- Guest -->
-                    <div v-else class="ml-4 flex items-center md:ml-6">
-                        <NavLink :href="route('session.create')" :active="route().current('session.create')">Login</NavLink>
-                        <NavLink :href="route('register.create')" :active="route().current('register.create')">Register</NavLink>
-                    </div>
+                    <ul v-else class="ml-4 flex items-center md:ml-6">
+                        <li>
+                            <NavLink :href="route('session.create')" :active="route().current('session.create')">Login</NavLink>
+                        </li>
+
+                        <li>
+                            <NavLink :href="route('register.create')" :active="route().current('register.create')">Register</NavLink>
+                        </li>
+                    </ul>
                 </div>
                 <div class="-mr-2 flex md:hidden">
                     <!-- Mobile menu button -->
