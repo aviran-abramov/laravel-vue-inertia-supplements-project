@@ -6,7 +6,7 @@ const props = defineProps<IAppLayout>();
 </script>
 
 <template>
-    <div class="min-h-full">
+    <div class="min-h-full bg-slate-50">
         <AppNavigation />
 
         <header class="bg-white shadow">
