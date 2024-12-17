@@ -38,7 +38,7 @@ const triggerModal = () => showModal.value = !showModal.value;
 
         <div class="modal-box max-w-4xl border-2 border-black">
             <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2" @click="triggerModal">✕</button>
-            <h3 class="text-xl font-bold">{{ supplement.name }}</h3>
+            <h3 class="text-2xl font-bold">{{ supplement.name }}</h3>
             <p class="py-4">{{ supplement.description }}</p>
             <p>
                 <strong>More Info:</strong>
