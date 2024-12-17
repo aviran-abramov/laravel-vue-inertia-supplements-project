@@ -22,15 +22,18 @@ import NavLink from './NavLink.vue';
                         </ul>
                     </div>
                 </div>
-                <div class="hidden md:block">
-                    <!-- Auth -->
+                <div class="flex items-center gap-8">
+                    <!-- Show Email address if logged in -->
+                    <div class="text-white text-sm" v-if="$page.props.auth.user">{{ $page.props.auth.user.email }}</div>
+
+                    <!-- Auth Nav -->
                     <ul v-if="$page.props.auth.user">
                         <li>
                             <NavLink :href="route('session.destroy')" method="post" as="button">Logout</NavLink>
                         </li>
                     </ul>
 
-                    <!-- Guest -->
+                    <!-- Guest Nav -->
                     <ul v-else class="ml-4 flex items-center md:ml-6">
                         <li>
                             <NavLink :href="route('session.create')" :active="route().current('session.create')">Login</NavLink>
